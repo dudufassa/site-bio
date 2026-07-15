@@ -10,13 +10,17 @@
 
 <body> 
     <div class="container">
-        <!--Cabeçalho abaixo-->
-        <header class="profile">
+        <!--Hero / Cabeçalho com interação-->
+        <header class="profile hero">
+            <div class="hero-visual">
+                <div class="blob" id="blob-1"></div>
+                <div class="blob" id="blob-2"></div>
+            </div>
             <div class="avatar">
                 <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
             </div>
-            <h1>Márcio Edurdo Fassa Moreira</h1>
-            <p class="subtitle">Engenheiro de Software</p>
+            <h1>Márcio Eduardo Fassa Moreira</h1>
+            <p class="subtitle">Engenheiro de Software — Frontend · Backend · Arquitetura</p>
         </header>
 
         <!--Links de conexão rápida-->
@@ -27,6 +31,20 @@
         </div>
 
         <main class="links-container">
+            <!--Seção de habilidades-->
+            <section class="card skills-card">
+                <h2><i class="fas fa-tools"></i> Linguagens & Skills</h2>
+                <div class="skills-list">
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">TypeScript</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">C#</span>
+                    <span class="skill">SQL</span>
+                </div>
+            </section>
+
             <!--card objetivos-->
             <section class="card">
                 <h2><i class="fas fa-bullseye"></i> Objetivos</h2>
@@ -55,6 +73,19 @@
             <p>© 2026 Portifólio Pessoal Profissional</p>
         </footer>
     </div>
-    
+    <script>
+        // Interação simples: parallax das blobs seguindo o cursor (suave)
+        (function(){
+            const blob1 = document.getElementById('blob-1');
+            const blob2 = document.getElementById('blob-2');
+            const speed = 0.03;
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX - window.innerWidth / 2) * speed;
+                const y = (e.clientY - window.innerHeight / 2) * speed;
+                if (blob1) blob1.style.transform = `translate(${x}px, ${y}px)`;
+                if (blob2) blob2.style.transform = `translate(${-x}px, ${-y}px)`;
+            });
+        })();
+    </script>
 </body>
 </html>
